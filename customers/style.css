@@ -1,0 +1,241 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  
+  background: #fcfcfc;
+  min-height: 200vh;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 40px 100px;
+  z-index: 10000;
+}
+header.sticky{
+  padding: 5px 100px;
+  background-color: rgb(248, 249, 250);
+}
+header .logo{
+  position: relative;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+header ul{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li{
+  position: relative;
+  list-style: none;
+}
+header ul li a{
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #111;
+  letter-spacing: 2px;
+  font-weight: 500px;
+  transition: 0.6s;
+}
+.banner{
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background: url('https://pkmacbook.com/wp-content/uploads/2021/07/banner-thoi-trang-hien-dai-dep-nhat_113857069.jpg');
+  background-size: cover;
+}
+header.sticky .logo,
+header.sticky ul li a{
+  color: #000;
+}
+
+/* Item */
+.middle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #dcdcdc;
+}
+.container{
+  position: relative;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-gap: 20px;
+  padding: 20px;
+}
+.container .card{
+  width: 100%;
+  background: #fff;
+}
+.container .card .imgBx{
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+
+}
+.container .card .imgBx img{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+  transform-origin: right;
+}
+.container .card:hover .imgBx img{
+  transform: scale(1.5);
+}
+.action{
+  position: absolute;
+  top:10px;
+  right:10px;
+}
+.action li{
+  position: relative;
+  list-style: none;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  cursor: pointer;
+  transition: transform 0.5s;
+  transform: translateX(60px);
+}
+.action li:nth-child(2){
+  transition-delay: 0.1s;
+}
+.container .card:hover .action li{
+  transform: translateX(0px);
+}
+
+.action li:hover{
+  background: #ff2020;
+  color:#fff;
+}
+
+.action li span{
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-20%);
+  white-space: nowrap;
+  padding: 4px 60px;
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s;
+}
+.action li:hover span{
+  transform: translateY(-50%) translateX(0%);
+  opacity: 1;
+}
+.action li span::before{
+  content:'';
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+.container .card .content{
+  padding:10px;
+}
+.container .card .content .productName{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .card .content .productName h3{
+  font-size: 18px;
+  font-weight: 500;
+  color:#333;
+  margin:5px 0;
+}
+.container .card .content .productName h2{
+  font-size: 20px;
+  color: #ff2020;
+  font-weight: 500;
+}
+
+/* footer */
+footer{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.font-content h3{
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+
+}
+.socials {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a {
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i {
+  font-size: 1.1rem;
+  transition: color .4s ease;
+}
+.socials a:hover i{
+  color: aqua;
+}
