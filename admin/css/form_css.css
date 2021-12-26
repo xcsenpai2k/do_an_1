@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	background: url(../img/bg_insert.jpg) no-repeat;
+	background-size: cover;
+
+
+}
+
+.form_insert {
+	width: 350px;
+	top: 50%;
+	left: 	50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+}
+
+.form_insert h1 {
+	font-size: 15px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 20px 0;
+	color: #fff;
+}
+
+.form_insert p {
+	font-size: 15px;
+	margin: 15px 0;
+	color: #fff;
+}
+
+.form_insert input {
+	font-size: 15px;
+	width: 100%;
+	padding: 15px 10px;
+	outline: none;
+	border-radius: 5px;
+}
+.form_insert img {
+	width: 20%;
+	height: 40px;
+}
+.form_insert textarea {
+	font-size: 15px;
+	width: 100%;
+	padding: 15px 10px;
+	outline: none;
+	border-radius: 5px;
+}
+
+.form_insert select {
+	font-size: 15px;
+	width: 100%;
+	padding: 15px 10px;
+	outline: none;
+	border-radius: 5px;
+}
+
+.form_insert button {
+	font-size: 15px;
+	font-weight: bold;
+	margin: 20px 0;
+	padding: 10px 15px;
+	width: 50%;
+	border-radius: 5px;
+	border: 0;
+}

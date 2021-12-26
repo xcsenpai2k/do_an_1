@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 body{
-  
   background: #fcfcfc;
   min-height: 200vh;
+}
+a{
+  text-decoration: none;
 }
 header{
   position: fixed;
