@@ -8,7 +8,7 @@
 	}
 
 	$name = $_POST['name'];
-	$sql = "insert into producer(name)
+	$sql = "insert into manufactures(name)
 	values('$name')";
 
 	mysqli_query($connect,$sql);

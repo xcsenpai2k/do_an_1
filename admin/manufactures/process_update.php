@@ -6,16 +6,16 @@
 		header('location: form_update.php?error=Bạn phải truyền mã để sửa');
 		exit;
 	}
-
+	$id = $_POST['id'];
 	if(empty($_POST['name'])) {
-		header('location: form_insert.php?error=Bạn cần phải điền đầy đủ thông tin!');
+		header('location: form_update.php?id='.$id.'&error=Bạn cần phải điền đầy đủ thông tin!');
 		exit;
 	}
-	$id = $_POST['id'];
+	
 	$name = $_POST['name'];
 	
 
- 	$sql = "update producer
+ 	$sql = "update manufactures
  	set
  	name = '$name'
  	where id = '$id' " ;

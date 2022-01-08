@@ -30,7 +30,7 @@
 	       i.price as product_price
 	       FROM (((customers c INNER JOIN purchase_order p ON c.id = p.customer_id)
 	              INNER JOIN purchase_order_details d ON p.id = d.purchase_order_id)
-	              INNER JOIN product i ON d.product_id = i.id)
+	              INNER JOIN products i ON d.product_id = i.id)
 	       WHERE p.id = '$id'";
 
 	       $result = mysqli_query($connect,$sql);

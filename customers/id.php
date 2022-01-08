@@ -10,7 +10,7 @@ require 'connect.php';
 	<h1>
 		<?php echo $each['name'] ?>
 	</h1>
-	<img src="./photos/<?php echo $each['photo'] ?>" height='100'>
+	<img src="../admin/products/photos/<?php echo $each['photo'] ?>" height='100'>
 	<p><?php echo $each['price'] ?></p>
 	<p><?php echo $each['description'] ?></p>
 </div>

@@ -6,14 +6,14 @@
 		header('location: form_update.php?error=Bạn phải truyền mã để sửa');
 		exit;
 	}	
-
+	$id = $_POST['id'];
 	if(empty($_POST['name']) || empty($_POST['phone_number']) || empty($_POST['address'])
 	 || empty($_POST['gender']) || empty($_POST['date']) || empty($_POST['email']) || empty($_POST['password'])) {
-		header('location: form_insert.php?error=Bạn cần phải điền đầy đủ thông tin!');
+		header('location: form_update.php?id='.$id.'&error=Bạn cần phải điền đầy đủ thông tin!');
 		exit;
 	}
 	
-	$id = $_POST['id'];
+
 	$name = $_POST['name'];
 	$phone_number = $_POST['phone_number'];
 	$address = $_POST['address'];

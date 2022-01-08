@@ -5,17 +5,75 @@
 					<div class="table_header">
 						<?php
 							require '../db/connect.php';
-							$sql = "select purchase_order.*,
-							customers.name as customers_name,
-							customers.phone_number as customers_phone,
-							customers.address as customers_address
-							from purchase_order join customers 
-							on purchase_order.customer_id = customers.id";
+							$category_search = 'purchase_order.id';
+							$search = '';
+							if (isset($_GET['search']) && isset($_GET['category_search']) ) {
+								$search = $_GET['search'];
+								$category_search = $_GET['category_search'];
+								$sql_number_of_rows = "select count(*)
+										from purchase_order join customers 
+										on purchase_order.customer_id = customers.id 
+										where $category_search like '%$search%' ";
+							}else {
+								$sql_number_of_rows = "select count(*)
+										from purchase_order join customers 
+										on purchase_order.customer_id = customers.id ";
+								
+							}
+							require '../pagination/pagination_process.php';	
+
+							if (isset($_GET['search']) && isset($_GET['category_search']) ) {
+								$search = $_GET['search'];
+								$category_search = $_GET['category_search'];
+								$sql = "select purchase_order.*,
+										customers.name as customers_name,
+										customers.phone_number as customers_phone,
+										customers.address as customers_address
+										from purchase_order join customers 
+										on purchase_order.customer_id = customers.id 
+										where $category_search like '%$search%' limit 
+										$number_of_rows_on_pages offset $offset ";
+							}else {
+								$sql = "select purchase_order.*,
+										customers.name as customers_name,
+										customers.phone_number as customers_phone,
+										customers.address as customers_address
+										from purchase_order join customers 
+										on purchase_order.customer_id = customers.id 
+										limit $number_of_rows_on_pages offset $offset";
+							}
 							$result = mysqli_query($connect,$sql); 
 						?>
 						<h1>Danh sách đơn hàng</h1>
 						<?php require '../notification.php' ?>
 					</div>
+					<form>
+						<div style="display: flex;">
+							<div style="margin-left: 150px;">
+								<label style="padding-right: 10px;">
+									<b>Tìm kiếm</b>
+								</label>
+								<input type="text" name="search" value="<?php echo $search ?>">
+							</div>
+							<div style="margin-left: 50px;  margin-right: 40px;">
+								<label style="padding-right: 10px;">
+									<b>Danh mục tìm kiếm</b>
+								</label>
+								<select name="category_search">
+									<?php if($category_search == '') { ?>
+										<option value="purchase_order.id">Mã</option>
+									<?php }else{ ?>
+										<option selected value="purchase_order.id">Mã</option>
+									<?php } ?>
+									<option value="purchase_order.id">Mã</option>
+								</select>
+							</div>
+							<button type="submit">
+								tìm kiếm
+							</button>
+						</div>
+					</form>
+					<br>
 					<table class="table_values" width="100%" border="1">
 						<tr>
 							<th>Mã</th>
@@ -79,6 +137,7 @@
 							</tr>
 						<?php endforeach ?>
 					</table>
+					<?php require '../pagination/pagination_display.php' ?>
 				</div>
 			</div>
 			<?php require '../footer.php' ?>

@@ -9,7 +9,7 @@ require 'connect.php';
         <?php foreach ($result as $each): ?>
             <div class="card">
                 <div class="imgBx">
-                    <img src="./photos/<?php echo $each['photo'] ?>">
+                    <img src="../admin/products/photos/<?php echo $each['photo'] ?>">
                     <ul class="action">
                         <li>
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>

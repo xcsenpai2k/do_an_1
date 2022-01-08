@@ -33,7 +33,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="../producer">
+					<a href="../manufactures">
 						<span class="title">Quản lý nhà sản xuất</span>
 					</a>
 				</li>
@@ -60,17 +60,6 @@
 			</ul>
 		</div>
 		<div class="main">
-			<div class="topbar">
-				<div class="toggle"></div>
-				<div class="name_staff">
-					<p>Xin chào, <b><?php echo $name ?></b></p>
-				</div>
-				<div class="search">
-					<label>
-						<input type="text" placeholder="Tìm kiếm tại đây">
-					</label>
-				</div>
-				<div class="user">
-						<img height="60px"  src="../img/user.jpg">
-				</div>
+			<div class="topbar" style="padding-top: 5px;">
+					<p style="margin-left: 60px; ">Xin chào, <b><?php echo $name ?></b></p>
 			</div>

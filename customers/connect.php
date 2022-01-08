@@ -1,3 +1,3 @@
-<?php  
-$connect = mysqli_connect('localhost','root','chung123','2school');
-mysqli_set_charset($connect,'utf8');
+<?php 
+	$connect = mysqli_connect('localhost','root','gZyXShfz','do_an_1');
+	mysqli_set_charset($connect,'utf8');
