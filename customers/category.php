@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,51 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="mainstyle.css">
-    <title>Website</title>
+    <title>Website-Ivy-Trangn danh mục</title>
 </head>
 <body>
-<?php include 'navbar.php' ?>
-    <!--SLlDER--->
-    <section class="sliders">
-            <div class="aspect-ratio-169">
-                <img src="photo/slide1.jpg" alt="">
-                <img src="photo/slide2.jpg" alt="">
-                <img src="photo/slide3.jpg" alt="">
+    <?php include 'navbar.php' ?>
+    <!-- Category -->
+    <?php
+        require 'connect.php';
+        $sql = "select * from category";
+        $result = mysqli_query($connect,$sql);
+        $each = mysqli_fetch_array($result); 
+    ?>
+    <section class="cartegory">
+        <div class="container">
+            <div class="cartegory-top row">
+                <p><a href="index.php">Trang chủ</a></p> <span>⟶</span> <p><?php echo $each['name'] ?></p>
             </div>
-            <div class="dot-container">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-           </div>
-    </section>
-    <div class="container">
+        </div>
+        <div class="container">
             <div class="row">
                 <div class="cartegory-left">    
                     <ul>
                         <?php foreach ($result as $each): ?>
                         <li class="cartegory-left-li"><a href="category.php?id=<?php echo $each['id'] ?>">
-                            <?php echo $each['name'] ?>
+                            <?php echo $each['name']  ?>
                         </a></li>
                         <?php endforeach ?>
                     </ul>
                 </div>
-                <?php
-                    require 'connect.php';
-                    $sql = "select * from products";
-                    $result = mysqli_query($connect,$sql); 
-                ?>
+                
                 <div class="cartegory-right row">
                     <div class="cartegory-right-top-item">
-                        <p>Tất cả sản phẩm</p>
+                        <p><?php echo $each['name'] ?></p>
                     </div>
-                    <div class="cartegory-right-top-item">
+                    <?php
+                    $id = $_GET['id'];
+                    $sql = "select * from products where category_id = '$id'";
+                    $result = mysqli_query($connect,$sql); 
+                    ?>
+                    <!-- <div class="cartegory-right-top-item">
                         <select name="" id="">
                             <option value="">Sắp xếp</option>
                             <option value="">Giá cao đến thấp</option>
                             <option value="">Giá thấp đến cao</option>
                         </select>
                      </div>
-                     <div class="cartegory-right-content row">
+ -->                <div class="cartegory-right-content row">
                         <?php foreach ($result as $each): ?>
                         <div class="cartegory-right-content-item">
                             <a href="product.php?id=<?php echo $each['id'] ?>"><img src="photo/<?php echo $each['photo'] ?>" alt=""></a>
@@ -72,11 +72,14 @@
                 </div>
             </div>
         </div>
-    <!-- Footer-->
-    <?php include 'footer.php' ?>
-
+    </section>
+    
+     <!-- Footer-->
+     <?php include 'footer.php' ?>
 
 <script src="script.js"></script>
+
+
 
 </body>
 </html>                      

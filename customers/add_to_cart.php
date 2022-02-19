@@ -1,8 +1,8 @@
 <?php 
-session_start();
+ session_start();
 // unset($_SESSION['cart']);
 
-$id = $_GET['id'];
+ $id = $_GET['id'];
 if(empty($_SESSION['cart'][$id])){
 	require 'connect.php';
 	$sql = "select * from products where id = '$id'";
@@ -14,6 +14,5 @@ if(empty($_SESSION['cart'][$id])){
 	$_SESSION['cart'][$id]['quantity'] = 1;
 } else{
 	$_SESSION['cart'][$id]['quantity']++;
-}
-
-print_r($_SESSION['cart']);
+} 
+header('location:cart.php');

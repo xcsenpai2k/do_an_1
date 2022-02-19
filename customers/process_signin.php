@@ -8,6 +8,11 @@ if(isset($_POST['remember'])){
 	$remember=false;
 }
 
+if(empty($email) || empty($password)){
+	header('location:signin.php?error=Bạn cần phải điền đầy đủ thông tin!');
+		exit;
+}
+
 require 'connect.php';
 $sql = "select * from customers
 where email = '$email' and password='$password'";
@@ -29,6 +34,9 @@ if($number_rows == 1){
 		mysqli_query($connect,$sql);
 		setcookie('remember', $token, time()+60*60*24*30);
 	}
-	header('location:user.php');
+	header('location:index.php');
 	exit;
+}
+else{
+	header('location:signin.php?error=Sai email hoặc mật khẩu');
 }

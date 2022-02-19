@@ -14,4 +14,4 @@ if($type === 'dec'){
 	$_SESSION['cart'][$id]['quantity']++;
 }
 
-header('location:view_cart.php');
+header('location:cart.php');
